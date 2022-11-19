@@ -1,5 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// Project imports:
 import 'package:unahorro_mobile/utils/colors.dart' as colors;
 import 'package:unahorro_mobile/utils/constraints.dart' as constraints;
 
@@ -43,8 +45,8 @@ class AccountQuestion extends StatelessWidget {
                 fontSize: constraints.btnFontSize,
                 fontWeight: FontWeight.w700
               ),
-            )
-          )
+            ),
+          ),
         ],
       ),
     );

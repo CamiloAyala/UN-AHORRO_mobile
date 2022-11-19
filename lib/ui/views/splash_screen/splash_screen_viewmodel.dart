@@ -2,12 +2,13 @@
 import 'dart:async';
 
 // Package imports:
+import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
-import 'package:unahorro_mobile/app/app.router.dart';
+// Project imports:
 import 'package:unahorro_mobile/app/app.locator.dart';
-import 'package:jwt_decoder/jwt_decoder.dart';
+import 'package:unahorro_mobile/app/app.router.dart';
 import 'package:unahorro_mobile/services/secure_storage_service.dart';
 
 class SplashScreenViewModel extends BaseViewModel {
@@ -34,8 +35,8 @@ class SplashScreenViewModel extends BaseViewModel {
     return false;
   }
 
-  Future _navigateToLogin() async {
-    await _navigationService.clearStackAndShow(Routes.loginView);
+  Future _navigateToStart() async {
+    await _navigationService.clearStackAndShow(Routes.startView);
   }
 
   Future _navigateToHome() async {
@@ -43,7 +44,7 @@ class SplashScreenViewModel extends BaseViewModel {
   }
 
   _nextScreen() async {
-    _navigateToLogin();
+    _navigateToStart();
   }
 
 }

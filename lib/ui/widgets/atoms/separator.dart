@@ -1,7 +1,11 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-import 'package:unahorro_mobile/utils/colors.dart' as colors;
+// Package imports:
 import 'package:flutter_conditional_rendering/flutter_conditional_rendering.dart';
+
+// Project imports:
+import 'package:unahorro_mobile/utils/colors.dart' as colors;
 
 class Separator extends StatelessWidget {
   final String text;
