@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:stacked_services/stacked_services.dart';
+import 'package:unahorro_mobile/app/app.locator.dart';
 
 // Project imports:
 import 'package:unahorro_mobile/app/app.router.dart';
 import 'utils/colors.dart' as colors;
 
 void main() {
+  setupLocator();
   runApp(const MyApp());
 }
 
@@ -33,10 +35,11 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         canvasColor: colors.background,
         primaryColor: colors.primary,
-        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: colors.secondary)),
-        navigatorKey: StackedService.navigatorKey,
-        onGenerateRoute: StackedRouter().onGenerateRoute,
-        initialRoute: Routes.splashScreenView,
-      );
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: colors.secondary)
+      ),
+      navigatorKey: StackedService.navigatorKey,
+      onGenerateRoute: StackedRouter().onGenerateRoute,
+      initialRoute: Routes.splashScreenView,
+    );
   }
 }
