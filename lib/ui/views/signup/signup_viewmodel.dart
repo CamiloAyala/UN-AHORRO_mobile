@@ -10,7 +10,7 @@ class SignupViewModel extends BaseViewModel {
 
   final _navigationService = locator<NavigationService>();
 
-  Future navigateToLogin() async{
+  void navigateToLogin() {
     _navigationService.navigateTo(Routes.loginView);
   }
 

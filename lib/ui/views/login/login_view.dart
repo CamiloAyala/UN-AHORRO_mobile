@@ -118,13 +118,15 @@ class _LoginViewState extends State<LoginView> {
                     text: "Inicia sesión con Google",
                     borderColor: Colors.black,
                     withBorder: true,
-                    onPressed: () => {}
+                    onPressed: () => { }
                   ),
 
                   AccountQuestion(
                     question: "¿Aún no tienes una cuenta?",
                     acction: "Registrate",
-                    onPressed: () => { model.navigateToSignup()},
+                    onPressed: () => {
+                      model.navigateToSignup()
+                    },
                     padding: 28
                   )
                 ]

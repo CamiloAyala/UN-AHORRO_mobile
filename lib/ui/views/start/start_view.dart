@@ -58,9 +58,9 @@ class StartView extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 54),
                   child: SubmitButton(
                     text: "Iniciar sesión",
-                    textColor: Colors.black,
+                    textColor: colors.background,
                     buttonColor: colors.secondary,
-                    onPressed: () => model.navigateToLogin,
+                    onPressed: () => model.nextScreen(),
                   ),
                 ),
               ]

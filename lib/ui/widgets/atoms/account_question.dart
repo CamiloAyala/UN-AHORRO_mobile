@@ -36,7 +36,7 @@ class AccountQuestion extends StatelessWidget {
             ),
           ),
           TextButton(
-            onPressed: () => {}, 
+            onPressed: onPressed, 
             child: Text(
               acction,
               style: const TextStyle(

@@ -11,4 +11,8 @@ class StartViewModel extends BaseViewModel {
     _navigationService.navigateToLoginView();
   }
 
+  void nextScreen()async {
+    await navigateToLogin();
+  }
+
 }

@@ -9,7 +9,7 @@ import 'package:unahorro_mobile/app/app.router.dart';
 class LoginViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
 
-  Future navigateToSignup() async{
+  void navigateToSignup(){
     _navigationService.navigateTo(Routes.signupView);
   }
 }

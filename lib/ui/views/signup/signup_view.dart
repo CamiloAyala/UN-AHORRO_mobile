@@ -137,7 +137,7 @@ class _SignUpViewState extends State<SignupView> {
                   AccountQuestion(
                     question: "¿Ya tienes una cuenta?",
                     acction: "Inicia sesión",
-                    onPressed: () => { model.navigateToLogin },
+                    onPressed: () => model.navigateToLogin(),
                     padding: 20
                   )
                 ]
