@@ -10,6 +10,8 @@ class SubmitButton extends StatelessWidget {
   final Function()? onPressed;
   final Color textColor;
   final Color buttonColor;
+  final bool? withSuffixIcon;
+  final Widget? suffixIcon;
 
   const SubmitButton({
     Key? key,
@@ -17,6 +19,8 @@ class SubmitButton extends StatelessWidget {
     required this.onPressed,
     required this.textColor,
     required this.buttonColor,
+    this.withSuffixIcon,
+    this.suffixIcon,
   }) : super(key: key);
 
   @override
@@ -41,9 +45,27 @@ class SubmitButton extends StatelessWidget {
           width: double.infinity,
           height: constraints.btnHeight,
           alignment: Alignment.center,
-          child: Text(text),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                text,
+                style: TextStyle(
+                  color: textColor,
+                  fontFamily: "Lato",
+                  fontSize: constraints.btnFontSize,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              if (withSuffixIcon != null && withSuffixIcon == true)
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: suffixIcon,
+                ),
+            ],
+          ),
+          ),
         ),
-      )
     );
   }
 }

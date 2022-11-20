@@ -7,8 +7,10 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i7;
-import 'package:unahorro_mobile/ui/views/home/home_view.dart' as _i6;
+import 'package:stacked_services/stacked_services.dart' as _i8;
+import 'package:unahorro_mobile/ui/views/evaluation/presentation/evaluation_presentation_view.dart'
+    as _i6;
+import 'package:unahorro_mobile/ui/views/home/home_view.dart' as _i7;
 import 'package:unahorro_mobile/ui/views/login/login_view.dart' as _i4;
 import 'package:unahorro_mobile/ui/views/signup/signup_view.dart' as _i5;
 import 'package:unahorro_mobile/ui/views/splash_screen/splash_screen_view.dart'
@@ -24,6 +26,8 @@ class Routes {
 
   static const signupView = '/signup';
 
+  static const evaluationPresentationView = '/evaluation';
+
   static const homeView = '/home';
 
   static const all = <String>{
@@ -31,6 +35,7 @@ class Routes {
     startView,
     loginView,
     signupView,
+    evaluationPresentationView,
     homeView,
   };
 }
@@ -54,8 +59,12 @@ class StackedRouter extends _i1.RouterBase {
       page: _i5.SignupView,
     ),
     _i1.RouteDef(
+      Routes.evaluationPresentationView,
+      page: _i6.EvaluationPresentationView,
+    ),
+    _i1.RouteDef(
       Routes.homeView,
-      page: _i6.HomeView,
+      page: _i7.HomeView,
     ),
   ];
 
@@ -84,9 +93,15 @@ class StackedRouter extends _i1.RouterBase {
         settings: data,
       );
     },
-    _i6.HomeView: (data) {
+    _i6.EvaluationPresentationView: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => const _i6.HomeView(),
+        builder: (context) => const _i6.EvaluationPresentationView(),
+        settings: data,
+      );
+    },
+    _i7.HomeView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const _i7.HomeView(),
         settings: data,
       );
     },
@@ -98,7 +113,7 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i7.NavigationService {
+extension NavigatorStateExtension on _i8.NavigationService {
   Future<dynamic> navigateToSplashScreenView([
     int? routerId,
     bool preventDuplicates = true,
@@ -149,6 +164,20 @@ extension NavigatorStateExtension on _i7.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.signupView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToEvaluationPresentationView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.evaluationPresentationView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
