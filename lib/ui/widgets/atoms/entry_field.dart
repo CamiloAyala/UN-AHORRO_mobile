@@ -13,6 +13,7 @@ class EntryField extends StatelessWidget {
   final Widget? prefixIcon;
   final double padding;
 
+  final Function(String)? onChanged;
   final TextInputType textType;
 
   const EntryField({
@@ -23,6 +24,7 @@ class EntryField extends StatelessWidget {
     this.suffixIcon,
     this.prefixIcon,
     required this.padding,
+    this.onChanged,
     this.textType = TextInputType.text,
   }) : super(key: key);
 
@@ -35,6 +37,7 @@ class EntryField extends StatelessWidget {
         child: TextFormField(
             obscureText: isPassword,
             keyboardType: textType,
+            onChanged: onChanged,
             style: const TextStyle(
               color: colors.black,
               fontFamily: "Lato",

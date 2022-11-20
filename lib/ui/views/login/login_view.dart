@@ -71,11 +71,12 @@ class _LoginViewState extends State<LoginView> {
                     key: _formKey,
                     child: Column(
                       children: <Widget>[
-                        const EntryField(
+                        EntryField(
                           padding: 32,
                           labelText: "Correo electrónico",
                           hintText: "Correo electrónico",
                           textType: TextInputType.emailAddress,
+                          onChanged: model.changeEmail,
                         ),
 
                         EntryField(
@@ -83,6 +84,7 @@ class _LoginViewState extends State<LoginView> {
                           labelText: "Contraseña",
                           hintText: "Contraseña",
                           isPassword: true,
+                          onChanged: model.changePassword,
                           suffixIcon: IconButton(
                             icon: Icon(
                               _passwordVisible
@@ -108,7 +110,7 @@ class _LoginViewState extends State<LoginView> {
                       text: "Iniciar sesión",
                       textColor: colors.secondary,
                       buttonColor: colors.background,
-                      onPressed: () => {},
+                      onPressed: () { model.userLogin(); },
                     ),
                   ),
 
