@@ -52,8 +52,10 @@ dependencies:
   # Allow conditional rendering in widgets
   flutter_conditional_rendering: ^2.0.0
   flutter_svg: ^1.1.6
-  flutter_secure_storage: ^4.2.1
+  flutter_secure_storage: ^6.0.0
   jwt_decoder: ^2.0.1
+  graphql: ^5.1.1
+  carousel_slider: ^4.1.1
 
 dev_dependencies:
   flutter_test:
