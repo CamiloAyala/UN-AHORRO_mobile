@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:unahorro_mobile/ui/views/home/home_viewmodel.dart';
 
 // Project imports:
 import 'package:unahorro_mobile/ui/widgets/organisms/carousel/carousel.dart';
@@ -7,7 +8,9 @@ import 'package:unahorro_mobile/utils/colors.dart' as colors;
 import 'package:unahorro_mobile/utils/constraints.dart' as constraints;
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
+
+  HomeViewModel model = HomeViewModel();
 
   @override
   Widget build(BuildContext context){
@@ -124,7 +127,7 @@ class HomePage extends StatelessWidget {
                     Container(
                       width: 110,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () => model.navigateToContent() ,
                         style: ElevatedButton.styleFrom(
                           elevation: 0,
                           backgroundColor: colors.white,

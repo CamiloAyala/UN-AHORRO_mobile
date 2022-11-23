@@ -33,7 +33,7 @@ class HomeViewModel extends BaseViewModel {
   String get name => _name ?? "";
   String get photoURL => _photoURL ?? "";
 
-  void navigateToLogin() {
-    //_navigationService.navigateTo(Routes.content1View);
+  void navigateToContent() {
+    _navigationService.navigateTo(Routes.contentView);
   }
 }

@@ -20,10 +20,10 @@ class HomeView extends StatelessWidget {
   final String logo = 'images/Logo_2.svg';
 
   final List<Widget> pages = [
-    const Center(child: HomePage()),
-    const Center(child: ProgressPage()),
-    const Center(child: ForumPage()),
-    const Center(child: ProfilePage()),
+    HomePage(),
+    const ProgressPage(),
+    const ForumPage(),
+    const ProfilePage(),
   ];
 
 

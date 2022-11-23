@@ -5,27 +5,21 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-
-// Flutter imports:
-import 'package:flutter/material.dart' as _i9;
+import 'package:flutter/material.dart' as _i10;
 import 'package:flutter/material.dart';
-
-// Package imports:
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i10;
-
-// Project imports:
-import 'package:unahorro_mobile/ui/views/home/home_view.dart' as _i8;
-import 'package:unahorro_mobile/ui/views/login/login_view.dart' as _i4;
-import 'package:unahorro_mobile/ui/views/signup/signup_view.dart' as _i5;
-import 'package:unahorro_mobile/ui/views/start/start_view.dart' as _i3;
-
+import 'package:stacked_services/stacked_services.dart' as _i11;
+import 'package:unahorro_mobile/ui/views/content/content_view.dart' as _i9;
 import 'package:unahorro_mobile/ui/views/evaluation/presentation/evaluation_presentation_view.dart'
     as _i6;
 import 'package:unahorro_mobile/ui/views/evaluation/questions/questions_view.dart'
     as _i7;
+import 'package:unahorro_mobile/ui/views/home/home_view.dart' as _i8;
+import 'package:unahorro_mobile/ui/views/login/login_view.dart' as _i4;
+import 'package:unahorro_mobile/ui/views/signup/signup_view.dart' as _i5;
 import 'package:unahorro_mobile/ui/views/splash_screen/splash_screen_view.dart'
     as _i2;
+import 'package:unahorro_mobile/ui/views/start/start_view.dart' as _i3;
 
 class Routes {
   static const splashScreenView = '/splash';
@@ -42,6 +36,8 @@ class Routes {
 
   static const homeView = '/home';
 
+  static const contentView = '/content1';
+
   static const all = <String>{
     splashScreenView,
     startView,
@@ -50,6 +46,7 @@ class Routes {
     evaluationPresentationView,
     questionsView,
     homeView,
+    contentView,
   };
 }
 
@@ -82,6 +79,10 @@ class StackedRouter extends _i1.RouterBase {
     _i1.RouteDef(
       Routes.homeView,
       page: _i8.HomeView,
+    ),
+    _i1.RouteDef(
+      Routes.contentView,
+      page: _i9.ContentView,
     ),
   ];
 
@@ -131,6 +132,15 @@ class StackedRouter extends _i1.RouterBase {
         settings: data,
       );
     },
+    _i9.ContentView: (data) {
+      final args = data.getArgs<ContentViewArguments>(
+        orElse: () => const ContentViewArguments(),
+      );
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => _i9.ContentView(key: args.key),
+        settings: data,
+      );
+    },
   };
 
   @override
@@ -142,10 +152,16 @@ class StackedRouter extends _i1.RouterBase {
 class HomeViewArguments {
   const HomeViewArguments({this.key});
 
-  final _i9.Key? key;
+  final _i10.Key? key;
 }
 
-extension NavigatorStateExtension on _i10.NavigationService {
+class ContentViewArguments {
+  const ContentViewArguments({this.key});
+
+  final _i10.Key? key;
+}
+
+extension NavigatorStateExtension on _i11.NavigationService {
   Future<dynamic> navigateToSplashScreenView([
     int? routerId,
     bool preventDuplicates = true,
@@ -231,7 +247,7 @@ extension NavigatorStateExtension on _i10.NavigationService {
   }
 
   Future<dynamic> navigateToHomeView({
-    _i9.Key? key,
+    _i10.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -240,6 +256,22 @@ extension NavigatorStateExtension on _i10.NavigationService {
   }) async {
     return navigateTo<dynamic>(Routes.homeView,
         arguments: HomeViewArguments(key: key),
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToContentView({
+    _i10.Key? key,
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  }) async {
+    return navigateTo<dynamic>(Routes.contentView,
+        arguments: ContentViewArguments(key: key),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

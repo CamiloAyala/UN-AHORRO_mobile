@@ -9,6 +9,7 @@ import 'package:stacked_services/stacked_services.dart';
 import 'package:unahorro_mobile/services/question_service.dart';
 import 'package:unahorro_mobile/services/secure_storage_service.dart';
 import 'package:unahorro_mobile/services/user_services.dart';
+import 'package:unahorro_mobile/ui/views/content/content_view.dart';
 import 'package:unahorro_mobile/ui/views/evaluation/presentation/evaluation_presentation_view.dart';
 import 'package:unahorro_mobile/ui/views/evaluation/questions/questions_view.dart';
 import 'package:unahorro_mobile/ui/views/home/home_view.dart';
@@ -26,6 +27,7 @@ import 'package:unahorro_mobile/ui/views/start/start_view.dart';
     MaterialRoute(page: EvaluationPresentationView, path: '/evaluation'),
     MaterialRoute(page: QuestionsView, path: '/questions'),
     MaterialRoute(page: HomeView, path: '/home'),
+    MaterialRoute(page: ContentView, path: '/content1'),
 ], 
   dependencies: [
     LazySingleton(classType: NavigationService),
