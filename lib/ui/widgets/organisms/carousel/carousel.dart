@@ -118,7 +118,7 @@ class CardImage extends StatelessWidget{
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
               children:  const [
-                Image(image: AssetImage('assets/images/unal.png'), width: 90)
+                Image(image: AssetImage('images/unal.png'), width: 90)
               ],
             ),
             
