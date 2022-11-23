@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:stacked/stacked.dart';
 import 'package:unahorro_mobile/ui/views/home/home_viewmodel.dart';
 import 'package:unahorro_mobile/ui/widgets/organisms/carousel/carousel.dart';
+import 'package:unahorro_mobile/ui/widgets/organisms/navbar/bottom_navbar_view.dart';
 import 'package:unahorro_mobile/utils/colors.dart' as colors;
 
 class HomeView extends StatelessWidget {
@@ -16,7 +17,7 @@ class HomeView extends StatelessWidget {
       builder: (context, HomeViewModel model, Widget? child) => Scaffold(
 
         appBar: AppBar(
-          title: SvgPicture.asset('assets/images/Logo_2.svg', height: 25, width: 160),
+          title: SvgPicture.asset('images/Logo_2.svg', height: 25, width: 160),
           centerTitle: true,
           elevation: 0,
           backgroundColor: colors.background,
@@ -28,6 +29,11 @@ class HomeView extends StatelessWidget {
             Carousel(),
             Text('Hola Mundo'),
           ],
+        ),
+
+        bottomNavigationBar: BottomNavbarView(
+          changeIndex: model.changeIndex,
+          currentIndex: model.currentIndex,
         ),
       ),
       viewModelBuilder: () => HomeViewModel(),

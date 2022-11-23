@@ -27,7 +27,7 @@ class EvaluationPresentationView extends StatelessWidget {
 
                   SizedBox(
                     width: screenSize.width,
-                    child: SvgPicture.asset('assets/images/Book_lover-bro.svg', height: 380),
+                    child: SvgPicture.asset('images/Book_lover-bro.svg', height: 380),
                   ),
 
                   Padding(
@@ -70,7 +70,7 @@ class EvaluationPresentationView extends StatelessWidget {
                       text: "Empezar",
                       textColor: colors.black,
                       buttonColor: colors.secondary,
-                      onPressed: () { },
+                      onPressed: () { model.navigateToQuestions(); },
                       withSuffixIcon: true,
                       suffixIcon: const Padding(
                         padding: EdgeInsets.only(top: 2),
