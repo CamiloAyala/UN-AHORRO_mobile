@@ -25,7 +25,7 @@ class SplashScreenView extends StatelessWidget {
                 children: <Widget>[
                   Center(
                     child: SvgPicture.asset(
-                      'assets/images/Logo.svg',
+                      'images/Logo.svg',
                       width: 200,
                       height: 200,
                     )

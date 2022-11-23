@@ -52,7 +52,7 @@ class GoogleButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(
-                'assets/images/Google.svg',
+                'images/Google.svg',
                 height: 24,
               ),
               const SizedBox(width: 10),

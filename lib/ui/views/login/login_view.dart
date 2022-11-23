@@ -45,7 +45,7 @@ class _LoginViewState extends State<LoginView> {
                   SizedBox(
                     width: screenSize.width,
                     height: screenSize.height * 0.25,
-                    child: SvgPicture.asset('assets/images/Piggy.svg', height: 215),
+                    child: SvgPicture.asset('images/Piggy.svg', height: 215),
                   ),
 
                   Padding(
@@ -83,7 +83,7 @@ class _LoginViewState extends State<LoginView> {
                           padding: 24,
                           labelText: "Contraseña",
                           hintText: "Contraseña",
-                          isPassword: true,
+                          isPassword: !_passwordVisible,
                           onChanged: model.changePassword,
                           suffixIcon: IconButton(
                             icon: Icon(

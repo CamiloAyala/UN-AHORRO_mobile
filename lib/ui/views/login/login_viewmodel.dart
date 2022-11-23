@@ -43,7 +43,7 @@ class LoginViewModel extends BaseViewModel {
 
       await setAccessToken(token);
       await setUserInfo(token);
-      _navigationService.navigateTo(Routes.homeView);
+      _navigationService.clearStackAndShow(Routes.evaluationPresentationView);
     }
   }
 
@@ -54,7 +54,6 @@ class LoginViewModel extends BaseViewModel {
   setUserInfo(String token) async {
     Map<String, dynamic> userInfo = JwtDecoder.decode(token);
     String id = userInfo['id'].toString();
-    print('id: $id');
     await secureStorageService.storeStringValue(key: 'userId', value: id);
 
   }
