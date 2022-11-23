@@ -5,19 +5,27 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+
+// Flutter imports:
+import 'package:flutter/material.dart' as _i9;
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i9;
+import 'package:stacked_services/stacked_services.dart' as _i10;
+
+// Project imports:
+import 'package:unahorro_mobile/ui/views/home/home_view.dart' as _i8;
+import 'package:unahorro_mobile/ui/views/login/login_view.dart' as _i4;
+import 'package:unahorro_mobile/ui/views/signup/signup_view.dart' as _i5;
+import 'package:unahorro_mobile/ui/views/start/start_view.dart' as _i3;
+
 import 'package:unahorro_mobile/ui/views/evaluation/presentation/evaluation_presentation_view.dart'
     as _i6;
 import 'package:unahorro_mobile/ui/views/evaluation/questions/questions_view.dart'
     as _i7;
-import 'package:unahorro_mobile/ui/views/home/home_view.dart' as _i8;
-import 'package:unahorro_mobile/ui/views/login/login_view.dart' as _i4;
-import 'package:unahorro_mobile/ui/views/signup/signup_view.dart' as _i5;
 import 'package:unahorro_mobile/ui/views/splash_screen/splash_screen_view.dart'
     as _i2;
-import 'package:unahorro_mobile/ui/views/start/start_view.dart' as _i3;
 
 class Routes {
   static const splashScreenView = '/splash';
@@ -115,8 +123,11 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i8.HomeView: (data) {
+      final args = data.getArgs<HomeViewArguments>(
+        orElse: () => const HomeViewArguments(),
+      );
       return MaterialPageRoute<dynamic>(
-        builder: (context) => const _i8.HomeView(),
+        builder: (context) => _i8.HomeView(key: args.key),
         settings: data,
       );
     },
@@ -128,7 +139,13 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i9.NavigationService {
+class HomeViewArguments {
+  const HomeViewArguments({this.key});
+
+  final _i9.Key? key;
+}
+
+extension NavigatorStateExtension on _i10.NavigationService {
   Future<dynamic> navigateToSplashScreenView([
     int? routerId,
     bool preventDuplicates = true,
@@ -213,14 +230,16 @@ extension NavigatorStateExtension on _i9.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToHomeView([
+  Future<dynamic> navigateToHomeView({
+    _i9.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return navigateTo<dynamic>(Routes.homeView,
+        arguments: HomeViewArguments(key: key),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
