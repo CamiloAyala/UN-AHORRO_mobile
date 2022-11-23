@@ -7,8 +7,10 @@ import 'package:stacked/stacked.dart';
 
 // Project imports:
 import 'package:unahorro_mobile/ui/views/home/home_viewmodel.dart';
+import 'package:unahorro_mobile/ui/views/home/pages/forum_page.dart';
 import 'package:unahorro_mobile/ui/views/home/pages/home_page.dart';
-import 'package:unahorro_mobile/ui/widgets/organisms/carousel/carousel.dart';
+import 'package:unahorro_mobile/ui/views/home/pages/profile_page.dart';
+import 'package:unahorro_mobile/ui/views/home/pages/progress_page.dart';
 import 'package:unahorro_mobile/ui/widgets/organisms/navbar/bottom_navbar_view.dart';
 import 'package:unahorro_mobile/utils/colors.dart' as colors;
 
@@ -19,9 +21,9 @@ class HomeView extends StatelessWidget {
 
   final List<Widget> pages = [
     const Center(child: HomePage()),
-    const Center(child: Text('Progress')),
-    const Center(child: Text('Foro')),
-    const Center(child: Text('Profile')),
+    const Center(child: ProgressPage()),
+    const Center(child: ForumPage()),
+    const Center(child: ProfilePage()),
   ];
 
 
