@@ -16,7 +16,7 @@ class HomeView extends StatelessWidget {
       builder: (context, HomeViewModel model, Widget? child) => Scaffold(
 
         appBar: AppBar(
-          title: SvgPicture.asset(logo, height: 25, width: 160),
+          title: SvgPicture.asset('assets/images/Logo_2.svg', height: 25, width: 160),
           centerTitle: true,
           elevation: 0,
           backgroundColor: colors.background,

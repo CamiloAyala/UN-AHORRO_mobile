@@ -27,7 +27,7 @@ class EvaluationPresentationView extends StatelessWidget {
 
                   SizedBox(
                     width: screenSize.width,
-                    child: SvgPicture.asset(illustrationPath, height: 380),
+                    child: SvgPicture.asset('assets/images/Book_lover-bro.svg', height: 380),
                   ),
 
                   Padding(

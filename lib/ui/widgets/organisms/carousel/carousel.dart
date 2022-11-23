@@ -1,6 +1,3 @@
-
-import 'dart:html';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:unahorro_mobile/utils/colors.dart' as colors;

@@ -45,7 +45,7 @@ class _LoginViewState extends State<LoginView> {
                   SizedBox(
                     width: screenSize.width,
                     height: screenSize.height * 0.25,
-                    child: SvgPicture.asset(logoPath, height: 215),
+                    child: SvgPicture.asset('assets/images/Piggy.svg', height: 215),
                   ),
 
                   Padding(

@@ -5,7 +5,7 @@ class ApiClient {
   static final ApiClient client = ApiClient._internal();
   factory ApiClient() => client;
 
-  static final HttpLink _httpLink = HttpLink('http://localhost:4000/');
+  static final HttpLink _httpLink = HttpLink('https://api-gateway-ammz7kea7q-uc.a.run.app/');
 
   ApiClient._internal(){
     _makeClient('','');
