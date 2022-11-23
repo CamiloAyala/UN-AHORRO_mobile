@@ -1,8 +1,12 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:stacked/stacked.dart';
-import 'package:unahorro_mobile/ui/widgets/organisms/navbar/bottom_navbar_viewmodel.dart';
 
+// Project imports:
+import 'package:unahorro_mobile/ui/widgets/organisms/navbar/bottom_navbar_viewmodel.dart';
 import 'package:unahorro_mobile/utils/colors.dart' as colors;
 
 class BottomNavbarView extends StatelessWidget {

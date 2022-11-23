@@ -1,7 +1,11 @@
-import 'package:carousel_slider/carousel_slider.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:unahorro_mobile/utils/colors.dart' as colors;
 
+// Package imports:
+import 'package:carousel_slider/carousel_slider.dart';
+
+// Project imports:
+import 'package:unahorro_mobile/utils/colors.dart' as colors;
 
 class Carousel extends StatefulWidget{
   const Carousel({Key? key}) : super(key: key);

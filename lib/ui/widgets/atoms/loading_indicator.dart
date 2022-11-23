@@ -1,6 +1,8 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:unahorro_mobile/utils/colors.dart' as colors;
 
+// Project imports:
+import 'package:unahorro_mobile/utils/colors.dart' as colors;
 
 class LoadingIndicator extends StatelessWidget {
   const LoadingIndicator({ Key? key }) : super(key: key);
