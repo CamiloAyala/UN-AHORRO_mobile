@@ -70,32 +70,36 @@ class _SignUpViewState extends State<SignupView> {
                     child: Column(
                       children: <Widget>[
 
-                        const EntryField(
+                        EntryField(
                           padding: 22,
                           labelText: "Nombre",
                           hintText: "Nombre",
                           textType: TextInputType.text,
+                          onChanged: model.changeFirstName,
                         ),
 
-                        const EntryField(
+                        EntryField(
                           padding: 16,
                           labelText: "Apellidos",
                           hintText: "Apellidos",
                           textType: TextInputType.text,
+                          onChanged: model.changeLastName,
                         ),
 
-                        const EntryField(
+                        EntryField(
                           padding: 16,
                           labelText: "Correo electrónico",
                           hintText: "Correo electrónico",
                           textType: TextInputType.emailAddress,
+                          onChanged: model.changeEmail,
                         ),
 
                         EntryField(
                           padding: 16,
                           labelText: "Contraseña",
                           hintText: "Contraseña",
-                          isPassword: true,
+                          isPassword: !_passwordVisible,
+                          onChanged: model.changePassword,
                           suffixIcon: IconButton(
                             icon: Icon(
                               _passwordVisible
@@ -121,7 +125,7 @@ class _SignUpViewState extends State<SignupView> {
                       text: "Registrate",
                       textColor: colors.secondary,
                       buttonColor: colors.background,
-                      onPressed: () => {},
+                      onPressed: () { model.signUp(); },
                     ),
                   ),
 

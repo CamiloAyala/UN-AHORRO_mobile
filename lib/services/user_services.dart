@@ -1,16 +1,25 @@
 import 'dart:async';
 
 import 'package:unahorro_mobile/models/server_response.dart';
+import 'package:unahorro_mobile/services/api/mutations/signup.dart';
 import 'package:unahorro_mobile/services/api/queries/user_login.dart';
 
 
 class UserService {
 
-  String? _userName;
-  String? _photoURL;
+  String _userName = "";
+  String _photoURL = "";
 
-  String? get userName => _userName ?? "Hola";
-  String? get photoURL => _photoURL ?? "Hola";
+  String get userName => _userName;
+  String get photoURL => _photoURL;
+
+  set userName(String value) {
+    _userName = value;
+  }
+
+  set photoURL(String value) {
+    _photoURL = value;
+  }
 
   Future<ServerResponseModel> getToken (
     {required String email, required String password}) async {
@@ -20,14 +29,23 @@ class UserService {
       response = await login(email: email, password: password);
 
       if(response.data != null){
-        _userName = response.data!['login']['firstName'] + ' ' + response.data!['login']['lastName'];
-        _photoURL = response.data!['login']['photo'];
+        userName = response.data!['login']['firstName'] + ' ' + response.data!['login']['lastName'];
+        photoURL = response.data!['login']['photo'];
 
-        print('Hola $_userName');
       }
 
       return response;
    
+  }
+
+  Future <ServerResponseModel> createUser ({
+    required String firstName, required String lastName, required String email, required String password}) async {
+
+      ServerResponseModel response;
+
+      response = await signup(firstName: firstName, lastName: lastName, email: email, password: password);
+
+      return response;
   }
 
 }
