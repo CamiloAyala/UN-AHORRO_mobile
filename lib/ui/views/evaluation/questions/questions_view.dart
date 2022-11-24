@@ -31,9 +31,9 @@ class _QuestionsViewState extends State<QuestionsView> {
   List<String> topics = [
     "Tasa de interes",
     "Tasa de interes",
-    "Tasa de interes",
-    "Tasa de interes",
-    "Tasa de interes"
+    "Decisiones de endeudamiento",
+    "Decisiones de endeudamiento",
+    "Decisiones de inversión"
   ];
 
   @override

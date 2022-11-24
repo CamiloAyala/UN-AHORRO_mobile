@@ -21,12 +21,12 @@ Future<ServerResponseModel> signup(
       'signupInput' : { 'firstName': firstName, 'lastName': lastName ,'email' : email, 'password' : password }
     };
 
-    QueryOptions options = QueryOptions(
+    MutationOptions options = MutationOptions(
       document: gql(signupQuery),
       variables: signupInput
     );
 
-    QueryResult result = await ApiClient().makeQuery(options);
+    QueryResult result = await ApiClient().makeMutation(options, token: "", path: "");
 
     return handleResponse(result);
   }
