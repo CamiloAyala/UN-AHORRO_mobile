@@ -19,6 +19,10 @@ class LoginViewModel extends BaseViewModel {
   String email = '';
   String password = '';
 
+  bool responseError = false;
+  int responseStatus = 0;
+  String responseMessage = "";
+
   void navigateToSignup(){
     _navigationService.navigateTo(Routes.signupView);
   }
@@ -33,7 +37,7 @@ class LoginViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  Future userLogin() async {
+  Future<Set<Object>> userLogin() async {
 
     ServerResponseModel response = await userService.getToken(email: email, password: password);
 
@@ -43,8 +47,25 @@ class LoginViewModel extends BaseViewModel {
 
       await setAccessToken(token);
       await setUserInfo(token);
+
+      responseError = false;
+      responseStatus = 200;
+      responseMessage = "Sesión iniciada correctamente";
+
       _navigationService.clearStackAndShow(Routes.evaluationPresentationView);
     }
+    else if(response.statusCode == 400){
+      responseError = true;
+      responseStatus = response.statusCode!;
+      responseMessage = "Email o contraseña incorrectas";
+    }
+    else{
+      responseError = true;
+      responseStatus = 500;
+      responseMessage = "Error al conectar con el servidor";
+    }
+
+    return {responseError, responseStatus, responseMessage};
   }
 
   setAccessToken(String data) async {

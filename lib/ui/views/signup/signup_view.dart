@@ -23,12 +23,13 @@ class SignupView extends StatefulWidget{
 
 class _SignUpViewState extends State<SignupView> {
 
-  final logoPath = "images/Piggy.svg";
+  final logoPath = "assets/images/Piggy.svg";
   final _formKey = GlobalKey<FormState>();
   bool _passwordVisible = false;
 
   @override
   Widget build(BuildContext context) {
+    SnackBar snackBar;
     final screenSize = MediaQuery.of(context).size;
     return ViewModelBuilder.reactive(
       builder: (context, SignupViewModel model, child) => SafeArea(
@@ -125,7 +126,32 @@ class _SignUpViewState extends State<SignupView> {
                       text: "Registrate",
                       textColor: colors.secondary,
                       buttonColor: colors.background,
-                      onPressed: () { model.signUp(); },
+                      onPressed: () async {
+
+                        Set<Object> response = await model.signUp();
+
+                        if (response.contains(200)) {
+                          snackBar = SnackBar(
+                            content: Text(response.elementAt(2).toString()),
+                            backgroundColor: colors.black,
+                          );
+                        } 
+                        else if(response.contains(400)) {
+                          snackBar = SnackBar(
+                            content: Text(response.elementAt(2).toString()),
+                            backgroundColor: colors.warning,
+                          );
+                        }
+                        else{
+                          snackBar = SnackBar(
+                            content: Text(response.elementAt(2).toString()),
+                            backgroundColor: colors.warning,
+                          );
+                        }
+
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+                      },
                     ),
                   ),
 

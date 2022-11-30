@@ -18,6 +18,10 @@ class SignupViewModel extends BaseViewModel {
   String email = '';
   String password = '';
 
+  bool responseError = false;
+  int responseStatus = 0;
+  String responseMessage = "";
+
   changeFirstName(String value){
     firstName = value;
     notifyListeners();
@@ -43,15 +47,33 @@ class SignupViewModel extends BaseViewModel {
   }
   
 
-  Future signUp() async {
+  Future<Set<Object>> signUp() async {
     ServerResponseModel response = await userService.createUser(
       firstName: firstName, lastName: lastName ,email: email, password: password
     );
 
     if(!response.hasError){
 
+      responseError = false;
+      responseStatus = 200;
+      responseMessage = "Te has registrado correctamente";
+
       _navigationService.clearStackAndShow(Routes.loginView);
     }
+    else if(response.statusCode == 400){
+      responseError = true;
+      responseStatus = response.statusCode!;
+      responseMessage = "Revisa los campos";
+    }
+    else{
+      responseError = true;
+      responseStatus = 500;
+      responseMessage = "Error al conectar con el servidor";
+    }
+
+    print(response.data);
+
+    return {responseError, responseStatus, responseMessage};
   }
 
 }

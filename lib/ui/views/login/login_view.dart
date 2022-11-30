@@ -31,6 +31,7 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+    SnackBar snackBar;
     return ViewModelBuilder.reactive(
       builder: (context, LoginViewModel model, child) => SafeArea(
         child: Scaffold(
@@ -45,7 +46,7 @@ class _LoginViewState extends State<LoginView> {
                   SizedBox(
                     width: screenSize.width,
                     height: screenSize.height * 0.25,
-                    child: SvgPicture.asset('images/Piggy.svg', height: 215),
+                    child: SvgPicture.asset('assets/images/Piggy.svg', height: 215),
                   ),
 
                   Padding(
@@ -110,7 +111,30 @@ class _LoginViewState extends State<LoginView> {
                       text: "Iniciar sesión",
                       textColor: colors.secondary,
                       buttonColor: colors.background,
-                      onPressed: () { model.userLogin(); },
+                      onPressed: () async{
+                        Set<Object> response = await model.userLogin();
+
+                        if (response.contains(200)) {
+                          snackBar = SnackBar(
+                            content: Text(response.elementAt(2).toString()),
+                            backgroundColor: colors.black,
+                          );
+                        } 
+                        else if(response.contains(400)) {
+                          snackBar = SnackBar(
+                            content: Text(response.elementAt(2).toString()),
+                            backgroundColor: colors.warning,
+                          );
+                        }
+                        else{
+                          snackBar = SnackBar(
+                            content: Text(response.elementAt(2).toString()),
+                            backgroundColor: colors.warning,
+                          );
+                        }
+
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      },
                     ),
                   ),
 
@@ -126,9 +150,7 @@ class _LoginViewState extends State<LoginView> {
                   AccountQuestion(
                     question: "¿Aún no tienes una cuenta?",
                     acction: "Registrate",
-                    onPressed: () => {
-                      model.navigateToSignup()
-                    },
+                    onPressed: () { model.navigateToSignup(); },
                     padding: 28
                   )
                 ]
