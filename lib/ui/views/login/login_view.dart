@@ -144,7 +144,14 @@ class _LoginViewState extends State<LoginView> {
                     text: "Inicia sesión con Google",
                     borderColor: Colors.black,
                     withBorder: true,
-                    onPressed: () => { }
+                    onPressed: () => { 
+                      snackBar = const SnackBar(
+                        content: Text("Proximamente."),
+                        backgroundColor: colors.black,
+                      ),
+
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar)
+                    }
                   ),
 
                   AccountQuestion(
